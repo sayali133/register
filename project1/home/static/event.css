@@ -1,0 +1,103 @@
+
+body{
+    width: auto;
+    height: auto;
+	margin:0;
+	color:#0e4983;
+	background:url("/static/images/omg.png");
+	background-repeat: no-repeat;
+	
+    background-size: cover;
+    
+	font:600 16px/18px 'Open Sans',sans-serif;
+}
+
+.container{
+    background: rgb(204,42,124,0.8);
+    
+    margin-top: 100px;
+    margin-left: 70px;
+    margin-right: 40px;
+    width: 90%;
+    height: 830px;
+    
+}
+
+.container-images{
+    background-color: rgb(105, 241, 173);
+    float:left;
+    width: 40%;
+    height:inherit;
+    
+}
+
+.container-html{
+    height: 730px;
+    background-image: linear-gradient(to left, rgba(245, 92, 92, 0), rgb(245, 158, 216));
+    padding:50px 70px 50px 70px;
+    float: left;
+    width: 45%;
+
+}
+
+.container-html .tab,
+.container-form .group .label,
+.container-form .group .button{
+	text-transform:uppercase;
+}
+.container-html .tab{
+    text-align: center;
+    color:#fff;
+	border-color:#f52302;
+	font-size:22px;
+	margin-right:15px;
+	padding-bottom:5px;
+	margin:0 15px 10px 0;
+	display:inline-block;
+	border-bottom:2px solid transparent;
+}
+
+
+.container-form{
+	height: 830px;
+	position:relative;
+	
+}
+.container-form .group{
+	margin-bottom:15px;
+}
+.container-form .group .label,
+.container-form .group .input,
+.container-form .group .button{
+	width:100%;
+	color:#fff;
+	display:block;
+}
+.container-form .group .input,
+.container-form .group .button{
+	width: 90%;
+    border:none;
+	padding:15px 20px;
+	border-radius:25px;
+	background:rgba(238, 195, 240, 0.959);
+}
+
+.container-form .group .label{
+	color:rgb(245, 231, 229);
+	font-size:12px;
+}
+.container-form .group .button{
+	background:#eea43d;
+}
+
+
+
+
+
+
+
+/*For image size*/
+.container-images .scrimg{
+    width: 100%;
+    height:inherit;
+}

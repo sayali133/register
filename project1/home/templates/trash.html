@@ -1,0 +1,57 @@
+&nbsp;
+        &nbsp;
+        &nbsp;
+        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-database.js"></script>
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+            https://firebase.google.com/docs/web/setup#available-libraries -->
+        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-analytics.js"></script>
+        <script>
+            var myIndex = 0;
+            carousel();
+
+            function carousel() {
+            var i;
+            var x = document.getElementsByClassName("scrimg");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";  
+            }
+            myIndex++;
+            if (myIndex > x.length) {myIndex = 1}    
+            x[myIndex-1].style.display = "block";  
+            setTimeout(carousel, 4000); // Change image every 2 seconds
+            }
+
+            document.querySelector("#today").valueAsDate = new Date();
+        var firebaseConfig = {
+            apiKey: "AIzaSyCG-tmTNrp0Z4Cg7En6epdb-_UFikoX-sc",
+            authDomain: "fir-b5421.firebaseapp.com",
+            databaseURL: "https://fir-b5421-default-rtdb.firebaseio.com",
+            projectId: "fir-b5421",
+            storageBucket: "fir-b5421.appspot.com",
+            messagingSenderId: "266327038526",
+            appId: "1:266327038526:web:12f3e26c3039f4dee88f6f",
+            measurementId: "G-GG5VWFHF2E"
+                }; 
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+
+        //add function
+            function writeData() {
+                var database = firebase.database()
+                var ref = database.ref('clints')
+                var data = {
+                    Name: document.getElementById ("name").value,
+                    Contact: document.getElementById ("contact").value,
+                    Event: document.getElementById("event").value,
+                    City: document.getElementById("City").value,
+                    Budget: document.getElementById("Budget").value,
+                    Guest: document.getElementById("guests").value,
+                    Date:document.getElementById("today").value,
+                    Specifics: document.getElementById("specifics").value,
+
+            }
+            ref.push(data);
+            } 
+        </script>

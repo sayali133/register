@@ -1,0 +1,143 @@
+{% load static%}
+<!DOCTYPE html>
+{%if msg%}
+    <script>
+        window.alert('{{msg}}');
+    </script>
+    {% endif %}
+<html>
+    <head>
+        <title> Event Form </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <link rel="stylesheet" type="text/css" href="{% static 'event.css'%}">
+
+    </head>
+    <body>
+
+    <form class="form-container py-5 px-5" action="/postsubmit/" method="POST">
+        {% csrf_token %}
+        <div class="container">
+            <div class="container-images">
+                <img class="scrimg" src="{% static 'images/img1.jpg' %}">
+                <img class="scrimg" src="{% static 'images/img2.jpg' %}">
+                <img class="scrimg" src="{% static 'images/img3.jpg' %}">
+                <img class="scrimg" src="{% static 'images/img4.jpg' %}">
+                <img class="scrimg" src="{% static 'images/img5.jpg' %}">
+
+            </div>
+            <div class="container-html">
+                <label class="tab">REGISTRATION FORM</label>
+            <div class="container-form">
+                
+                <div class="group">
+                    <label for="name" class="label">User's Full Name</label>
+                    <input id="name" type="text" class="input" name ="name">
+                </div>
+                <div class="group">
+                    <label for="contact" class="label">Contact Number</label>
+                    <input id="contact" type="text" class="input" name ="contact">
+                </div>
+                <div class="group">
+                    <label for="event" class="label">Type of event</label>
+                    <select id="event" class="input" name="event">
+                        <option value="Wedding"> Wedding </option>
+                        <option value="Baby Showers">Baby Showers</option>
+                        <option value="Birthday Party">Birthday Party</option>
+                        <option value="Reunion"> Reunion </option>
+                    </select>
+                </div>
+
+                <div class="group">
+                    <label for="City" class="label">Place of event</label>
+                    <select id="City" class="input" name="City">
+                        <option value="Ahemdabad"> Ahemdabad </option>
+                        <option value="Banglore">Banglore</option>
+                        <option value="Chennai">Chennai</option>
+                        <option value="Delhi"> Delhi </option>
+                    </select>
+                </div>
+
+                <div class="group">
+                    <label for="Budget" class="label">Budget of event</label>
+                    <select name="Budget" class="input" id="Budget">
+                        <option value="25k">&#8377; 0 to 25,000 </option>
+                        <option value="50k">&#8377; 25,000 to 50,000 </option>
+                        <option value="150k">&#8377; 50,000 to 1,50,000 </option>
+                        <option value="300k">&#8377; 1,50,000 to 3,00,000 </option>
+                        <option value="lavish">&#8377; 3,00,000 and 5,00,000 </option>
+                        
+                    </select>
+                </div>
+
+                <div class="group">
+                    <label for="guests" class="label">Number of guests</label>
+                    <select name="guests" class="input" id="guests">
+                        <option value="0-50 guests">0-50 guests</option>
+                        <option value="50-100 guests">50-100 guests</option>
+                        <option value="100-200 guests">100-200 guests</option>
+                        <option value="200-500 guests">200-500 guests</option>
+                        <option value="500-1000 guests">500-1000 guests</option>
+                    </select>
+                </div>
+
+                <div class="group">
+                    <label for="date" class="label">Date of Event</label>
+                    <input class="input" id="today" type="date" name="date">
+                </div>
+
+                <div class="group">
+                    <label for="specifics" class="label">Event specifications</label>
+                    <textarea class="input" id="specifics" form="regform" placeholder="Enter what else would you like in the event.."></textarea>
+                </div>
+                
+                &nbsp;
+                <div class="group">
+                    
+                    <button type="submit" class="btn btn-primary btn-block my-3">Submit</button>
+                </div>
+    </form>
+                </div> 
+            </div>
+            
+        </div>
+    </div>
+  </div>
+  <hr>
+  <p style="text-align: center;" class="copyright">@ Event Management</p>
+</footer>
+
+        &nbsp;
+        &nbsp;
+        &nbsp;
+        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-database.js"></script>
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+            https://firebase.google.com/docs/web/setup#available-libraries -->
+        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-analytics.js"></script>
+        <script>
+            var myIndex = 0;
+            carousel();
+
+            function carousel() {
+            var i;
+            var x = document.getElementsByClassName("scrimg");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";  
+            }
+            myIndex++;
+            if (myIndex > x.length) {myIndex = 1}    
+            x[myIndex-1].style.display = "block";  
+            setTimeout(carousel, 4000); // Change image every 2 seconds
+            }
+
+        
+        
+        
+            function writeData() {                
+            }
+            
+            
+        </script>
+
+    </body>
+</html>
